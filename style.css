@@ -1,0 +1,187 @@
+/*Tudo*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*margin e padding 0 pra ignorar o padrão que vem pelo navegador, box-sizing: border-box serve pra assegurar o tamanho pré-definido pras caixas.*/
+}
+
+:root {
+  --cor-texto: white;
+  --fundo: url(./assets/bg-mobile.jpg);
+  --cor-borda: rgba(255, 255, 255, 0.5);
+  --cor-fundo-botao: rgba(255, 255, 255, 0.05);
+  --cor-fundo-botao-hover: rgba(0, 0, 0, 0.02);
+  --cor-icones: rgba(255, 255, 255, 0.2);
+  --switch: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --cor-texto: black;
+  --fundo: url(./assets/bg-mobile-light.jpg);
+  --cor-borda: rgba(0, 0, 0, 0.5);
+  --cor-fundo-botao: rgba(0, 0, 0, 0.05);
+  --cor-fundo-botao-hover: rgba(0, 0, 0, 0.02);
+  --cor-icones: rgba(0, 0, 0, 0.1);
+  --switch: url(./assets/sun.svg);
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--cor-texto);
+}
+
+body {
+  /* código completo do background
+  background-image: url(./assets/bg-mobile.jpg); puxa a imagem da pasta assets
+  background-repeat: no-repeat; pra não repetir a imagem
+  background-position: top center; centralizar a imagem
+  background-size: cover; cobrir toda a página com a imagem
+  */
+
+  /* código encurtado*/
+  background: var(--fundo) no-repeat top center/cover;
+  height: 100vh;
+}
+
+/*Caixa Principal*/
+#container {
+  width: 100%;
+  max-width: 588px;
+  margin: auto;
+  margin-top: 5px;
+  padding: 0px 24px;
+}
+
+/*Profile*/
+#profile {
+  padding: 24px;
+}
+
+#profile img {
+  display: block;
+  width: 112px;
+  margin: auto;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/*Switch*/
+
+#switch {
+  position: relative;
+  width: 64px;
+
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--cor-fundo-botao);
+  border: 1px solid var(--cor-borda);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/*Links*/
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0px;
+
+  list-style: none;
+}
+
+ul li a {
+  display: block;
+  padding: 16px 24px;
+
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 500;
+
+  background: var(--cor-fundo-botao);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+
+  transition: background 0.2s;
+}
+
+/*Efeito ao passar o mouse nos botões (pseudo-selector)*/
+ul li a:hover {
+  background: var(--cor-fundo-botao-hover);
+  border: 1.5px solid var(--cor-texto);
+}
+
+/*Ícones*/
+
+#icones {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+
+  font-size: 24px;
+}
+
+#icones a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 50%;
+
+  transition: 0.2s;
+}
+
+#icones a:hover {
+  background: var(--cor-icones);
+}
+
+/*Rodapé*/
+footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/*ajuste do background */
+@media (min-width: 700px){
+  :root {
+    --fundo: url(./assets/bg-desktop.png);
+  }
+
+  .light {
+    --fundo: url(./assets/bg-desktop-light.png);
+  }
+}
